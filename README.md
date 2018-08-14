@@ -1,0 +1,2 @@
+# nvidiaKali
+Nvidia initial conf,
