@@ -30,8 +30,8 @@ apt search linux-headers
 Instalar NVIDIA drivers.
 
 ```
-apt-get install nvidia-kernel-dkms nvidia-xconfig nvidia-settings
-apt-get install nvidia-vdpau-driver vdpau-va-driver mesa-utils
+apt install nvidia-kernel-dkms nvidia-xconfig nvidia-settings
+apt install nvidia-vdpau-driver vdpau-va-driver mesa-utils
 reboot
 ```
 
@@ -68,6 +68,8 @@ Xorg -configure
 **Usar Xorg.conf**
 
 ```
+service gdm3 status
+service gdm3 stop
 cp ~/nvidiaKali/xorg.conf /etc/X11/xorg.conf
 nano /etc/X11/xorg.conf
 ```
@@ -92,29 +94,15 @@ Adaptar la configuración de nuestro gestor de pantalla a la nueva tarjeta grafi
 ```
 cp ~/nvidiaKali/optimus.desktop /usr/share/gdm/greeter/autostart/optimus.desktop
 cp ~/nvidiaKali/optimus.desktop /etc/xdg/autostart/optimus.desktop
+service gdm3 start
 ```
-### Third Step
-
-Adaptar la configuración de nuestro gestor de pantalla a la nueva tarjeta grafica.
-
-```
-
-```
-
 ## Something Else !
 
-Add additional notes about how to deploy this on a live system
-
-glxinfo | grep NVIDIA
+```
+apt install nvidia-smi
 nvidia-msi
-
 xrandr --listproviders
-glxinfo | grep "OpenGL renderer"
-
-xrandr --setprovideroffloadsink 1 0
-
-
-
+```
 ## Authors and Acknowledgments
 
 * **Kevin Herney** - *Initial work -2018-2* - [nvidiaKali](https://github.com/kherney/nvidiaKali)
