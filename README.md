@@ -99,7 +99,7 @@ service gdm3 start
 ## Something Else !
 
 ```
-apt install nvidia-smi
+apt install nvidia-smi nvidia-opencl-common
 nvidia-msi
 xrandr --listproviders
 ```
